@@ -40,7 +40,7 @@ console.log(obj);
 yields:
 
 ```js
-{ 'user.id': '123242123',
+{ 'user.id': 123242123,
   'name.first': 'tobi',
   'name.last': 'loki',
   'properties.category': 'Buttons',
