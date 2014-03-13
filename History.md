@@ -1,4 +1,11 @@
 
+0.0.2 / 2014-03-13
+==================
+
+ * remove lowercasing
+ * fix doc typo
+ * Initial commit
+
 0.1.1 / 2014-03-11
 ==================
 
