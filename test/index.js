@@ -32,15 +32,17 @@ describe('strings', function(){
 describe('keys', function(){
   it('should be normalized', function(){
     var s = schema({
-      'Foo-Bar ': 'baz',
-      'Something Here': 'baz',
+      'fooBarBaz ': 'baz',
+      'foo-Bar-Baz ': 'baz',
+      'something   here': 'baz',
       foo_bar_Baz: 'something'
     });
 
     s.should.eql({
-      foo_bar: 'baz',
+      fooBarBaz: 'baz',
+      foo_Bar_Baz: 'baz',
       something_here: 'baz',
-      foo_bar_baz: 'something'
+      foo_bar_Baz: 'something'
     });
   })
 })

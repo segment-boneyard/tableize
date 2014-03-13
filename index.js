@@ -61,8 +61,5 @@ function isObject(val) {
  */
 
 function normalize(key) {
-  return key
-    .trim()
-    .toLowerCase()
-    .replace(/[\s-]+/g, '_');
+  return key.trim().replace(/[\s-]+/g, '_');
 }
