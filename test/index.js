@@ -53,12 +53,18 @@ describe('nested', function(){
       user: {
         first: 'tobi',
         last: 'ferret',
-        age: 2
+        age: 2,
+        nicks: {
+          shuppa: true,
+          foopa: true
+        }
       },
       timestamp: 1231232
     });
 
     s.should.eql({
+      'user.nicks.foopa': true,
+      'user.nicks.shuppa': true,
       'user.first': 'tobi',
       'user.last': 'ferret',
       'user.age': 2,
