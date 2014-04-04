@@ -32,10 +32,12 @@ function type(schema, obj, prefix) {
   Object.keys(obj).forEach(function(key){
     var val = obj[key];
 
+    key = prefix + normalize(key);
+
     if (isObject(val)) {
-      type(schema, val, normalize(key) + '.');
+      type(schema, val, key + '.');
     } else {
-      schema[prefix + normalize(key)] = val;
+      schema[key] = val;
     }
   });
 }
