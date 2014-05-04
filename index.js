@@ -29,17 +29,23 @@ function tableize(obj) {
  */
 
 function type(schema, obj, prefix) {
-  Object.keys(obj).forEach(function(key){
+  keys(obj).forEach(function(key){
     var val = obj[key];
 
     key = prefix + normalize(key);
 
-    if (isObject(val)) {
+    if (Array.isArray(val) || isObject(val)) {
       type(schema, val, key + '.');
     } else {
       schema[key] = val;
     }
   });
+}
+
+function keys(obj) {
+  if (Array.isArray(obj))
+    return obj.map(function(_, i){ return i; });
+  return Object.keys(obj);
 }
 
 /**
@@ -63,5 +69,5 @@ function isObject(val) {
  */
 
 function normalize(key) {
-  return key.trim().replace(/[\s-]+/g, '_');
+  return (""+key).trim().replace(/[\s-]+/g, '_');
 }
