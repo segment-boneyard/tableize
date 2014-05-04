@@ -29,6 +29,16 @@ describe('strings', function(){
   })
 })
 
+describe('arrays', function(){
+  it('should be included', function(){
+    var s = schema({ names: ['tj', 'bill'] })
+    s.should.eql({
+      "names.0": "tj" ,
+      "names.1": "bill" ,
+    })
+  })
+})
+
 describe('keys', function(){
   it('should be normalized', function(){
     var s = schema({
@@ -54,6 +64,7 @@ describe('nested', function(){
         first: 'tobi',
         last: 'ferret',
         age: 2,
+        tags: [{ cool: true }, 'rich'],
         nicks: {
           shuppa: true,
           foopa: true
@@ -68,7 +79,9 @@ describe('nested', function(){
       'user.first': 'tobi',
       'user.last': 'ferret',
       'user.age': 2,
-      'timestamp': 1231232
+      'timestamp': 1231232,
+      'user.tags.0.cool': true,
+      'user.tags.1': 'rich'
     })
   })
 })
