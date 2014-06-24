@@ -72,3 +72,17 @@ describe('nested', function(){
     })
   })
 })
+
+describe('lowercase option', function(){
+  it('should lowercase keys when true', function(){
+    var s = schema({
+      SomeStuffHere: 'whoop',
+      Some: { Nested: 'stuff' }
+    }, { lowercase: true });
+
+    s.should.eql({
+      'somestuffhere': 'whoop',
+      'some.nested': 'stuff'
+    });
+  })
+})

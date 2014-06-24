@@ -13,9 +13,10 @@ module.exports = tableize;
  * @api public
  */
 
-function tableize(obj) {
+function tableize(obj, opts) {
   var ret = {};
-  type(ret, obj, '');
+  opts = opts || {};
+  type(ret, obj, '', opts);
   return ret;
 }
 
@@ -28,14 +29,15 @@ function tableize(obj) {
  * @api private
  */
 
-function type(schema, obj, prefix) {
+function type(schema, obj, prefix, opts) {
   Object.keys(obj).forEach(function(key){
     var val = obj[key];
 
     key = prefix + normalize(key);
+    if (opts.lowercase) key = key.toLowerCase();
 
     if (isObject(val)) {
-      type(schema, val, key + '.');
+      type(schema, val, key + '.', opts);
     } else {
       schema[key] = val;
     }
