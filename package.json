@@ -1,6 +1,6 @@
 {
   "name": "tableize",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "repository": "segmentio/tableize",
   "description": "Generate a table-friendly object by flattening and normalizing the keys",
   "keywords": [
